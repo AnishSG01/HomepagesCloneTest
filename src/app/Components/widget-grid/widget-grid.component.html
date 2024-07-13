@@ -1,0 +1,48 @@
+<div class="outterContainer">
+  <div class="bpList">
+    <div class="widget-header">Business Partners</div>
+    <div class="widget-desc">BP List</div>
+  </div>
+
+  <div cdkDropListGroup class="widgetContainer">
+    <!-- Horizontal List -->
+    <div
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      class="example-list"
+      [cdkDropListData]="horizontalMovies"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        *ngFor="let movie of horizontalMovies; trackBy: trackMovie"
+        class="example-box"
+        cdkDrag
+      >
+        <div class="ex-widget-container">
+          <div class="widget-header">{{ movie.name }}</div>
+          <div class="widget-desc">{{ movie.desc }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vertical List -->
+    <div
+      cdkDropList
+      cdkDropListOrientation="vertical"
+      class="example-list"
+      [cdkDropListData]="verticalMovies"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        *ngFor="let movie of verticalMovies; trackBy: trackMovie"
+        class="example-box"
+        cdkDrag
+      >
+        <div class="ex-widget-container">
+          <div class="widget-header">{{ movie.name }}</div>
+          <div class="widget-desc">{{ movie.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
